@@ -41,8 +41,6 @@ The following files from the zip file were used. All of them can be viewed withi
 
 # Processing performed by run_analysis.R
 
-## Modular Code Structure
-
 The main line of this code uses chaining for easily passing the transformed data set to the next step.
 
 The script also includes a function named download_raw_data for convenience of obtaining the raw data.
