@@ -45,8 +45,8 @@ The following files from the zip file were used. All of them can be viewed withi
 
 The main line of this code uses chaining for easily passing the transformed data set to the next step.
 
-* Read and then merge the test and the train raw data to create one data set
-* Extract only the mean and standard deviation measurements
+1 Read and then merge the test and the train raw data to create one data set
+1 Extract only the mean and standard deviation measurements
 # 3 Mutate activity variables from codes to descriptive activity names
 # 4 Appropriately label the data set with descriptive variable names 
 # 5 Create a tidy data set with the average of each variable for each activity
