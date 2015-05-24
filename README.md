@@ -6,7 +6,7 @@ This repo contains the code book, script and tidy output data for Coursera's Get
 
 # About the Code Book
 
-TBD
+The CodeBook.md file explains how the raw data was transformed into a tidy dataset. It also provides details regarding the data variables.
 
 # About the raw input data
 
@@ -14,7 +14,13 @@ TBD
 
 # About the run_analysis.R script
 
-TBD
+The run_analysis.R script is an R script which performs the following high level steps to transform the raw input data to the tidy output data.
+
+1 - Read and then merge the test and the train raw data to create one data set
+2 - Extract only the mean and standard deviation measurements
+3 - Mutate activity variables from codes to descriptive activity names
+4 - Appropriately label the data set with descriptive variable names 
+5 - Create a tidy data set with the average of each variable for each activity and each subject
 
 # About the tidy output data
 
