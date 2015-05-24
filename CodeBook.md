@@ -12,6 +12,8 @@ The actual rawe data was downloaded from https://d396qusza40orc.cloudfront.net/g
 
 The following files from the zip file were used.<br>
 - activity_labels.txt
+  - activity code
+  - descriptive activity name
 - features.txt
 - test/subject_test.txt
 - test/X_test.txt
@@ -22,7 +24,7 @@ The following files from the zip file were used.<br>
 
 ## Variables
 
-# Processing performed by the run_analysis.R script
+# Processing performed by run_analysis.R
 
 TBD
 
