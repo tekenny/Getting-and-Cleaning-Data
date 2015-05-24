@@ -8,11 +8,23 @@ The raw data used was experimental observations from the "Human Activity Recogni
 
 The actual rawe data was downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-## Files
+## Files and Variables
+
+The following files from the zip file were used.<br>
+- activity_labels.txt
+- features.txt
+- test/subject_test.txt
+- test/X_test.txt
+- test/y_test.txt
+- train/subject_train.txt
+- train/X_train.txt
+- train/y_train.txt
 
 ## Variables
 
-# Processing performed 
+# Processing performed by the run_analysis.R script
+
+TBD
 
 # Processed tidy output data
 
