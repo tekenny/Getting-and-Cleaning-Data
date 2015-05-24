@@ -16,7 +16,7 @@ TBD
 
 The run_analysis.R script is an R script which performs the following high level steps to transform the raw input data to the tidy output data.
 
-  1 - Read and then merge the test and the train raw data to create one data set
+  1 - Read and then merge the test and the train raw data to create one data set<br>
   2 - Extract only the mean and standard deviation measurements
   3 - Mutate activity variables from codes to descriptive activity names
   4 - Appropriately label the data set with descriptive variable names 
