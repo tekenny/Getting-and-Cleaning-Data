@@ -8,7 +8,7 @@ This repo contains the script and code book for Coursera's Getting and Cleaning 
 
 TBD
 
-# About the script
+# About the run_analysis.R script
 
 TBD
 
