@@ -108,8 +108,7 @@ read_raw_data <- function() {
     dataset
 }
 
-# Although not all of the columns are used for this project, this function
-# progrmatically assigns column names for possible future use of this dataset
+# Assign appropriate column names for all the columns in the dataset
 # Note: intentionally kept special characters in the column names
 #       to provide a more descriptive name. Such as () suffixing the name of
 #       the function that was used to derive values
