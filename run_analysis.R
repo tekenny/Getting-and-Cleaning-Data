@@ -1,10 +1,15 @@
 library(plyr)
 library(dplyr)
+library(reshape2)
 
 # Creates a second independent tidy data set with the average of each variable
 # for each activity and each subject
 average_each_activity_and_each_subject <- function(dataset) {
-    dataset    
+    #
+    melt_data = melt(dataset, id = c("Activity","Subject"), measure.vars = c(3:68))
+    
+    #
+    tidy_data <- dcast(melt_data, Activity + Subject ~ variable, mean)   
 }
 
 # Download the zip file from the Internet which contains the raw data
@@ -118,25 +123,22 @@ set_column_names <- function(dataset) {
     dataset[, c(columns-1,columns,1:(columns-2))]
 }
 
-# Main line code starts here
+
+############      Main line code starts here      ############
+
 
 # Download the raw data from the Internet
 download_raw_data()
 
 # 1 Read and then merge the test and the train raw data to create one data set
-dataset <- read_raw_data()
-
 # 2 Extract only the mean and standard deviation measurements
-dataset <- extract_mean_and_standard_deviation(dataset)
-
 # 3 Mutate activity variables from codes to descriptive activity names
-dataset <- mutate_activity(dataset)
-
 # 4 Appropriately label the data set with descriptive variable names 
-dataset <- set_column_names(dataset)
-
 # 5 Create a tidy data set with the average of each variable for each activity
 #   and each subject
-dataset <- average_each_activity_and_each_subject(dataset)
-
-write.table(dataset, "analysis.txt", row.name=FALSE)
+dataset <- read_raw_data() %>%
+            extract_mean_and_standard_deviation() %>%
+            mutate_activity() %>%
+            set_column_names() %>%
+            average_each_activity_and_each_subject() %>%
+            write.table("analysis.txt", row.name=FALSE)
