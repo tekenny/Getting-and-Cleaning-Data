@@ -59,13 +59,21 @@ Column names of Activity and Subject are assigned to the first two rows.
 (Column names for the rest of the columns which are the feature measurements will be set later)
 
 2. Extract only the mean and standard deviation measurements<br>
-
+The requirements of our project dictated that only features indicated by the use of the mean() and std() functions are of interest. Although some features have meanFreq() within their name they are excluded since our interest is for measurements with derived from the common mean() function. How values using meanFreq() are derived are unknown and thus might not use the common mean() function. Thus those features were deemed to be out of scope for our project requirements.
+The existing data set from step 1 was then filter to only contain variables: Activity, Subject, 33 mean() related features and 33 std() related features.
 
 3. Mutate activity variables from codes to descriptive activity names<br>
+To make the date set more readable the mappings of activity codes to activity descriptive names contained in activity_labels.txt was use to transform the dataset in step 2 to replace the values in the Activity column from codes to names.
 
 4. Appropriately label the data set with descriptive variable names<br>
+The mappings in features.txt were used to assign appropriate column headings for the features in the data set in step 3.
+Careful attention was made to ensure that the same algorithm used to determine appropriate selected features in step 2 was also used to determine the appropriate column names for the features.
 
 5. Create a tidy data set with the average of each variable for each activity and each subject<br>
+Use melt to reshape the data to rows with 4 variables: Activity, Subject, measurement type and measurement value.
+This is to facilitate taking the mean for each measurement type in the next function call.
+Use dcast to reshape the data, grouping by Activity and Subject as well as taking the mean of the value of each measurement type.
+Result is tidy data where observations (rows) consist of: Activity, Subject and the mean of each measurement type for the Activity, Subject grouping.
 
 # Processed tidy output data
 
