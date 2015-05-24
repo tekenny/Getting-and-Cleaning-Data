@@ -10,17 +10,25 @@ The actual rawe data was downloaded from https://d396qusza40orc.cloudfront.net/g
 
 ## Files and Variables
 
-The following files from the zip file were used.<br>
-- activity_labels.txt
-  - activity code
+The following files from the zip file were used. All of them can be viewed within this repo.<br>
+- activity_labels.txt contains 6 mappings of activity codes and names
+  - numeric activity code
   - descriptive activity name
-- features.txt
-- test/subject_test.txt
-- test/X_test.txt
-- test/y_test.txt
-- train/subject_train.txt
-- train/X_train.txt
-- train/y_train.txt
+- features.txt contains 561 mappings of feature codes and names
+  - numeric feature code
+  - name of feature (aka type of experimental measurement)
+- test/subject_test.txt contains subject code for 2947 observations
+  - numeric subject code
+- test/X_test.txt contains 561 feature measurements for 2947 observations
+  - 561 numeric measurements in expontential notation
+- test/y_test.txt contains activity code for 2947 observations
+  - numeric activity code
+- train/subject_train.txt contains subject code for 7352 observations
+  - numeric subject code
+- train/X_train.txt contains 561 feature measurements for 7352 observations
+  - 561 numeric measurements in expontential notation
+- train/y_train.txt contains activity code for 7352 observations
+  - numeric activity code
 
 ## Variables
 
