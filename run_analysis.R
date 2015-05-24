@@ -5,10 +5,17 @@ library(reshape2)
 # Creates a second independent tidy data set with the average of each variable
 # for each activity and each subject
 average_each_activity_and_each_subject <- function(dataset) {
-    #
+    # Use melt to reshape the data to rows with 4 variables:
+    # Activity, Subject, measurement type and measurement value.
+    # This is to facilitate taking the mean for each measurement type
+    # in the next function call.
     melt_data = melt(dataset, id = c("Activity","Subject"), measure.vars = c(3:68))
     
-    #
+    # Use dcast to reshape the data, grouping by Activity and Subject
+    # as well as taking the mean of the value of each measurement type.
+    # Result is tidy data where observations (rows) consist of:
+    # Activity, Subject and the mean of each measurement type for the
+    # Activity, Subject grouping.
     tidy_data <- dcast(melt_data, Activity + Subject ~ variable, mean)   
 }
 
