@@ -1,4 +1,4 @@
-# Code 
+# Code Book
 
 This code book descirbes the raw input data, processing transformations of the data and the resulting tidy output data.
 
@@ -78,5 +78,6 @@ Result is tidy data where observations (rows) consist of: Activity, Subject and 
 
 # Processed tidy output data
 
-# TBD
-Was code book submitted to GitHub that modifies and updates the codebooks available to you with the data to indicate all the variables and summaries you calculated, along with units, and any other relevant information?
+## Files and Variables
+
+The output is contained in analysis.txt
