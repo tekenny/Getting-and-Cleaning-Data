@@ -45,10 +45,18 @@ The following files from the zip file were used. All of them can be viewed withi
 
 The main line of this code uses chaining for easily passing the transformed data set to the next step.
 
+The script also includes a function named download_raw_data for convenience of obtaining the raw data.
+
 1. Read and then merge the test and the train raw data to create one data set<br>
+test
+
 2. Extract only the mean and standard deviation measurements<br>
+<br>
+
 3. Mutate activity variables from codes to descriptive activity names<br>
+
 4. Appropriately label the data set with descriptive variable names<br>
+
 5. Create a tidy data set with the average of each variable for each activity and each subject<br>
 
 # Processed tidy output data
