@@ -48,16 +48,30 @@ extract_mean_and_standard_deviation <- function(dataset) {
     
     # Select columns with the mean function it it's name
     meanColumns <- grep(pattern = "-mean()", features$V2, fixed=TRUE, value=FALSE)
+    # add offset of 2 since Activity and Subject are actually the first two columns
+    meanColumns <- sapply(meanColumns, function(x) x+2)
 
     # Select columns with the std (standard deviation) function in it's name
     stdColumns <- grep(pattern = "-std()",  features$V2, fixed=TRUE, value=FALSE)
+    # add offset of 2 since Activity and Subject are actually the first two columns
+    stdColumns <- sapply(stdColumns, function(x) x+2)
     
     # Merge all the selected columns together
-    columns <- dim(dataset)[2]
-    selectedColumns <- c(meanColumns, stdColumns, columns-1, columns)
+    selectedColumns <- c(1, 2, meanColumns, stdColumns)
     
     # Now actually select the desired columns in the dataset
     dataSubset <- dataset[, as.vector(selectedColumns)]
+}
+
+# Mutate the Activity column in the dataset from activity code values
+# to names indicating the activity
+mutate_activity <- function(dataset) {
+    # Read activity labels to subsitute codes for descriptive names
+    activity_labels <- read.table("UCI-HAR-Dataset/activity_labels.txt")
+    colnames(activity_labels) <- c("ActivityID", "ActivityName")
+    
+    # Mutate Activity to be a name rather than a code
+    dataset <- mutate(dataset, Activity = activity_labels[Activity, 2])
 }
 
 # Read the raw data from seperate files and merge it into one dataset
@@ -71,7 +85,7 @@ read_raw_data <- function() {
     stopifnot(dim(test.s)[1] == dim(test.x)[1])
     stopifnot(dim(test.x)[1] == dim(test.y)[1])
     
-    test <- cbind(test.x, test.s, test.y)
+    test <- cbind(test.y, test.s, test.x)
     
     # Read the train data
     train.s <- read.table("UCI-HAR-Dataset/train/subject_train.txt")
@@ -82,28 +96,16 @@ read_raw_data <- function() {
     stopifnot(dim(train.s)[1] == dim(train.x)[1])  
     stopifnot(dim(train.x)[1] == dim(train.y)[1])
     
-    train <- cbind(train.x, train.s, train.y)
+    train <- cbind(train.y, train.s, train.x)
     
     # Combine the test and train data into one dataset
     dataset <- rbind(test, train)
     
-    # Set the column names for the last two columns
-    columns <- dim(dataset)[2]
-    colnames(dataset)[columns-1] = "Subject"
-    colnames(dataset)[columns] = "Activity"
+    # Set the column names for the first two columns
+    colnames(dataset)[1] = "Activity"
+    colnames(dataset)[2] = "Subject"
     
     dataset
-}
-
-# Mutate the Activity column in the dataset from activity code values
-# to names indicating the activity
-mutate_activity <- function(dataset) {
-    # Read activity labels to subsitute codes for descriptive names
-    activity_labels <- read.table("UCI-HAR-Dataset/activity_labels.txt")
-    colnames(activity_labels) <- c("ActivityID", "ActivityName")
-    
-    # Mutate Activity to be a name rather than a code
-    dataset <- mutate(dataset, Activity = activity_labels[Activity, 2])
 }
 
 # Although not all of the columns are used for this project, this function
@@ -122,14 +124,12 @@ set_column_names <- function(dataset) {
     stdColumnNames <- grep(pattern = "-std()",  features$V2, fixed=TRUE, value=TRUE)
     
     # Merge all the selected column names together
-    selectedColumnNames <- c(meanColumnNames, stdColumnNames, "Subject", "Activity")
+    selectedColumnNames <- c("Activity", "Subject", meanColumnNames, stdColumnNames)
     
     # Now actually set the column names to the dataset
     colnames(dataset) <- selectedColumnNames
-
-    # Reorganize columns so Subject and Activity are 1st two columns
-    columns <- dim(dataset)[2]
-    dataset[, c(columns-1,columns,1:(columns-2))]
+    
+    dataset
 }
 
 
