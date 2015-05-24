@@ -20,13 +20,13 @@ The following files from the zip file were used. All of them can be viewed withi
 - test/subject_test.txt contains subject code for 2947 observations
   - numeric subject code
 - test/X_test.txt contains 561 feature measurements for 2947 observations
-  - 561 numeric measurements in expontential notation
+  - 561 numeric measurements in expontential notation, see features.txt to sequentially map measurement to feature name
 - test/y_test.txt contains activity code for 2947 observations
   - numeric activity code
 - train/subject_train.txt contains subject code for 7352 observations
   - numeric subject code
 - train/X_train.txt contains 561 feature measurements for 7352 observations
-  - 561 numeric measurements in expontential notation
+  - 561 numeric measurements in expontential notation, see features.txt to sequentially map measurement to feature name
 - train/y_train.txt contains activity code for 7352 observations
   - numeric activity code
 
