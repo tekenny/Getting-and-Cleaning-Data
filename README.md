@@ -2,7 +2,11 @@
 
 # Introduction
 
-This repo contains the script and code book for Coursera's Getting and Cleaning Data course project
+This repo contains the code book, script and tidy output data for Coursera's Getting and Cleaning Data course project
+
+# About the Code Book
+
+TBD
 
 # About the raw input data
 
@@ -13,9 +17,5 @@ TBD
 TBD
 
 # About the tidy output data
-
-TBD
-
-# About the Code Book
 
 TBD
