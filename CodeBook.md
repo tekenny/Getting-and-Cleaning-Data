@@ -48,10 +48,18 @@ The main line of this code uses chaining for easily passing the transformed data
 The script also includes a function named download_raw_data for convenience of obtaining the raw data.
 
 1. Read and then merge the test and the train raw data to create one data set<br>
-test
+The 3 test data files test/y_test.txt, test/subject_test.txt and test/X_test.txt are read into tables.
+As a safety check processing is stopped if the number of observations does not match for the 3 tables.
+The columns (variables) of those 3 tables are then combined into a test data set in the order of y_test, subject_test and X_test.
+The 3 train data files train/y_train.txt, train/subject_train.txt and train/X_train.txt are read into tables.
+As a safety check processing is stopped if the number of observations does not match for the 3 tables.
+The columns (variables) of those 3 tables are then combined into a train data set in the order of y_train, subject_train and X_train.
+The rows (observations) of the test and train tables are then combined into a single data set.
+Column names of Activity and Subject are assigned to the first two rows.
+(Column names for the rest of the columns which are the feature measurements will be set later)
 
 2. Extract only the mean and standard deviation measurements<br>
-<br>
+
 
 3. Mutate activity variables from codes to descriptive activity names<br>
 
