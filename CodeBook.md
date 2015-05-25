@@ -41,7 +41,7 @@ The following files from the zip file were used. For your convenience the first 
 
 # Processing performed by run_analysis.R
 
-The main line of this code uses chaining to easily pass the transformed data set from one step to the next step.
+The main line of this code uses chaining to easily pass the transformed data set between the functions for each step of the process detailed below.
 
 The script also includes a function named download_raw_data for convenience of obtaining the raw data.
 
