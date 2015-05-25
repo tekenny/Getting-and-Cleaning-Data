@@ -19,7 +19,7 @@ These signals were used to estimate variables of the feature vector for each pat
 
 ## Files and Variables
 
-The following files from the zip file were used. For you convenience the first two files listed below are available in this repo. The rest of the files can be obtained from the raw data zip file from the URL mentioned above.
+The following files from the zip file were used. For your convenience the first two files listed below are available in this repo. The rest of the data files listed below can be obtained from the raw data zip file from the URL mentioned above.
 - activity_labels.txt contains 6 mappings of activity codes and names
   - numeric activity code
   - descriptive activity name
